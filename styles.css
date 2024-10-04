@@ -11,6 +11,7 @@ body {
   color: #333;
   line-height: 1.6;
   transition: background-color 0.3s ease-in-out;
+  padding-bottom: 60px; /* Asegura que el contenido no quede detrás del footer */
 }
 
 .container {
@@ -217,9 +218,11 @@ footer {
   color: white;
   text-align: center;
   padding: 20px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+  position: fixed; /* Cambiado a fixed */
+  bottom: 0; /* Siempre en la parte inferior */
+  left: 0; /* Alineado a la izquierda */
+  width: 100%; /* Ocupa todo el ancho */
+  z-index: 1000; /* Asegura que esté encima de otros elementos */
 }
 
 footer p {
@@ -257,7 +260,8 @@ footer p {
     padding: 60px 20px;
   }
 
-  .accordion, .accordion-content {
+  .accordion,
+  .accordion-content {
     width: 100%;
   }
 }
@@ -283,7 +287,8 @@ footer p {
     align-items: center;
   }
 
-  .accordion, .accordion-content {
+  .accordion,
+  .accordion-content {
     width: 100%;
   }
 
