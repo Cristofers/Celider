@@ -30,6 +30,8 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex; /* Flexbox para alineación horizontal */
+  align-items: center; /* Centrar verticalmente */
 }
 
 header h1 {
@@ -38,9 +40,10 @@ header h1 {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: 700;
+  margin-left: 20px; /* Espaciado entre la imagen y el título */
 }
 
-/* Vertical Nav Styles */
+/* Vertical Nav Styles (Computadoras) */
 nav {
   position: fixed;
   top: 0;
@@ -50,12 +53,11 @@ nav {
   background-color: #01002C;
   padding-top: 10px;
   transition: left 0.3s ease-in-out;
+  display: flex; /* Flexbox para alineación vertical */
+  flex-direction: column;
 }
 
 .inicio-img {
-  position: relative;
-  top: -25px;
-  left: 5px;
   width: 150px;
   height: 150px;
   margin-bottom: -40px;
@@ -139,79 +141,6 @@ nav ul li a:hover {
   color: #555;
 }
 
-.content-section ul {
-  list-style-type: disc;
-  padding-left: 40px;
-}
-
-.content-section address {
-  font-style: normal;
-  color: #777;
-}
-
-/* Accordion Styles */
-.accordion {
-  background-color: #061346;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 50%;
-  text-align: center;
-  border: none;
-  outline: none;
-  transition: 0.4s;
-  margin-bottom: 10px;
-  border-radius: 10px;
-}
-
-.accordion:hover {
-  background-color: #01002c;
-}
-
-.active,
-.accordion:focus {
-  background-color: #00429d;
-}
-
-.accordion-content {
-  padding: 0 18px;
-  background-color: #f4f4f9;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  border-radius: 0 0 10px 10px;
-  max-width: 50%;
-}
-
-.accordion-content ul {
-  list-style-type: none;
-  padding: 10px 0;
-}
-
-.accordion-content ul li {
-  margin: 10px 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #061346;
-}
-
-.accordion-content ul li:last-child {
-  border-bottom: none;
-}
-
-.accordion-content ul li a {
-  text-decoration: none;
-  color: #061346;
-  font-weight: bold;
-  display: inline-block;
-  width: 100%;
-  padding-bottom: 5px;
-}
-
-.accordion-content ul li a:hover {
-  color: #00429d;
-  border-bottom: 1px solid #00429d;
-}
-
 /* Footer Styles */
 footer {
   background-color: #333;
@@ -231,73 +160,59 @@ footer p {
   letter-spacing: 1px;
 }
 
-/* Button Styles */
-.button {
-  display: inline-block;
-  background-color: #061346;
-  color: white;
-  padding: 12px 25px;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 90px;
-  transition: background-color 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.button:hover {
-  background-color: #00429d;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsive Styles */
+/* Responsive Styles for Mobile Devices */
 @media (max-width: 768px) {
   nav {
-    width: 200px;
+    width: 100%; /* Navegación ocupa todo el ancho en móviles */
+    height: auto;
+    position: static; /* Cambiar a static para evitar que se superponga */
+    display: flex; /* Flexbox para alineación horizontal */
+    justify-content: flex-start; /* Alineación a la izquierda */
+    padding: 10px 0; /* Padding vertical */
+  }
+
+  .inicio-img {
+    width: 50px; /* Tamaño reducido de la imagen */
+    height: 50px; /* Tamaño reducido de la imagen */
+    margin-left: 10px; /* Espaciado izquierdo */
+    margin-right: 10px; /* Espaciado derecho */
+  }
+
+  nav ul {
+    display: flex; /* Flexbox para alineación horizontal */
+    flex-direction: row; /* Elementos en fila */
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li {
+    margin: 0 15px; /* Espaciado entre los elementos de la lista */
   }
 
   .content-section {
-    margin-left: 220px;
-    padding: 60px 20px;
+    margin: 80px 20px 30px 20px; /* Ajustar márgenes */
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center; /* Centrar texto */
   }
 
-  .accordion,
-  .accordion-content {
-    width: 100%;
+  .content-section h2 {
+    font-size: 2em; /* Tamaño más pequeño en móviles */
+  }
+
+  .content-section p,
+  .content-section ul,
+  .content-section address {
+    font-size: 1em; /* Tamaño más pequeño en móviles */
   }
 }
 
 @media (max-width: 480px) {
   header h1 {
-    font-size: 2em;
+    font-size: 1.8em; /* Tamaño de fuente más pequeño en móviles */
   }
 
-  .content-section {
-    margin-left: 0;
-    padding: 60px 20px;
-  }
-
-  nav {
-    width: 100%;
-    height: auto;
-    position: static;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .accordion,
-  .accordion-content {
-    width: 100%;
-  }
-
-  .miembro img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .miembro h3 {
-    font-size: 1.5em;
+  footer {
+    padding: 15px 0; /* Menos padding en el footer */
   }
 }
