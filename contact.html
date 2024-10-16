@@ -11,25 +11,40 @@
     </style>
   </head>
   <body>
-    <header>
+    <header> 
+      <div class="header-container">
+      <a href="index.html">
+          <img src="Imagenes/1 sin fondo.png" alt="Inicio" class="inicio-img" />
+      </a>
+      <button id="toggleNav" class="toggle-nav">☰</button>
+  </div>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/celider.03?igsh=cThiNmdhcjdwbmJl" target="_blank" class="social-icon"></a>
+        <img src="Imagenes/instagram blanco.png" alt="instagram" class="social-icon-img" />
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="social-icon">
+        <img src="Imagenes/whatsapp.png" alt="Whatsapp" class="social-icon-img" />
+    </a>
+
+    <a href="https://linktr.ee/Celider03?fbclid=PAZXh0bgNhZW0CMTEAAaZaLFB37pdkzQSwLwZw5d_uMa4Qd8PkPGQ5D5ir6fWZ8h0wR-LNqXrKsaQ_aem_ZfER9sy-eJxQXl4ZjUh2lw" target="_blank" class="social-icon">
+        <img src="Imagenes/5463-linktree-white.png" alt="Linktree" class="social-icon-img" />
+    </a>
+</div>
       <div class="container">
-        <h1>CELIDER</h1>
-        <nav>
-          <a href="index.html">
-            <img src="Imagenes/1 sin fondo.png" alt="Inicio" class="inicio-img" />
-          </a>
-          <ul>
-            <!-- Menú normal sin el enlace "Inicio" -->
-            <li><a href="trayectory.html">Trayectoria</a></li>
-            <li><a href="documents.html">Contenidos</a></li>
-            <li><a href="events.html">Eventos</a></li>
-            <li><a href="news.html">Noticias</a></li>
-            <li><a href="directive.html">Directiva</a></li>
-            <li><a href="contact.html">Contacto</a></li>
-          </ul>
-        </nav>
+          <h1>CELIDER 03</h1>
+      </header>
+          <nav>
+              <ul>
+                  <li><a href="trayectory.html">Trayectoria</a></li>
+                  <li><a href="documents.html">Contenidos</a></li>
+                  <li><a href="events.html">Eventos</a></li>
+                  <li><a href="news.html">Noticias</a></li>
+                  <li><a href="directive.html">Directiva</a></li>
+                  <li><a href="contact.html">Contacto</a></li>
+              </ul>
+          </nav>
       </div>
-    </header>
     
     <section class="content-section">
       <div class="container">
@@ -53,7 +68,55 @@
         <address>Calle Ejemplo 123, Ciudad, País</address>
       </div>
     </section>
+    <script>
+      
 
+      // Esperar a que todo el DOM esté cargado antes de ejecutar el script
+      document.addEventListener("DOMContentLoaded", function() {
+          // Seleccionamos el botón y el índice
+          const toggleNav = document.querySelector('.toggle-nav');
+          const nav = document.querySelector('nav');
+          const content = document.querySelector(".content-section");
+      
+          
+          // Agregamos el evento de click al botón
+          toggleNav.addEventListener('click', function() {
+            // Alternamos la clase 'hidden' en el nav
+            nav.classList.toggle("hidden");
+      
+            const hash = window.location.hash;
+      
+        // Si hay un hash en la URL
+        if (hash) {
+          // Obtener todos los enlaces de navegación
+          const navLinks = document.querySelectorAll('nav ul li a');
+      
+          // Eliminar la clase 'active' de todos los enlaces
+          navLinks.forEach(link => link.classList.remove('active'));
+      
+          // Añadir la clase 'active' al enlace correspondiente
+          const activeLink = document.querySelector(`nav ul li a[href="${hash}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      
+        
+            
+      
+            // Si el índice está oculto, movemos el botón y expandimos el contenido
+            if (nav.classList.contains("hidden")) {
+              content.classList.add("expand");   // Expande el contenido
+            } else {
+              content.classList.remove("expand"); // Reduce el contenido cuando el índice aparece
+            }
+            
+      
+            
+          });
+        });
+            console.log("DOM cargado, porque el script está al final del body");
+          </script>
     <footer>
       <p>&copy; 2024 CELIDER. Todos los derechos reservados.</p>
     </footer>

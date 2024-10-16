@@ -1,281 +1,282 @@
 /* General Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  line-height: 1.6;
-  transition: background-color 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Main content container to take up remaining space */
 .container {
-  flex: 1; /* Permite que el contenedor principal ocupe el espacio restante */
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex; /* Opción para organizar el contenido internamente si es necesario */
-  flex-direction: column; /* Mantener el contenido en columna */
+    flex: 1; /* Permite que el contenedor principal ocupe el espacio restante */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 0 20px;
+    display: flex; /* Opción para organizar el contenido internamente si es necesario */
+    flex-direction: column; /* Mantener el contenido en columna */
 }
 
 /* Header Styles */
 header {
-  background-color: #01002C;
-  color: white;
-  padding: 25px;
-  text-align: center;
-  position: relative;
-  top: 0;
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-
+    background-color: #01002C;
+    color: white;
+    padding: 25px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 header h1 {
-  font-size: 2em;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
 }
+
+.header-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Espacia los elementos de manera uniforme */
+}
+
+.social-icons {
+    position: absolute; /* Posiciona de forma absoluta respecto al header */
+    bottom: 10px; /* Distancia desde el fondo */
+    right: 10px; /* Distancia desde la derecha */
+    display: flex; /* Para colocar los iconos en fila */
+    z-index: 1200;
+
+}
+
+.social-icon {
+    margin-left: 15px; /* Espacio entre los iconos */
+}
+
+.social-icon-img {
+    width: 35px; /* Ajusta el tamaño de los íconos */
+    height: auto; /* Mantiene la proporción de las imágenes */
+    transition: transform 0.3s; /* Transición suave para el hover */
+}
+
+.social-icon-img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+
 
 /* Vertical Nav Styles */
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 160px;
-  height: 100%;
-  background-color: #01002C;
-  padding-top: 120px;
-  transition: left 0.3s ease-in-out;
-  
-}
-
-.inicio-img {
-  position: fixed;
-  top: -25px;
-  left: 5px;
-  width: 150px;
-  height: 150px;
-  
-  z-index: 1100;
-  transition: transform 0.3s ease-in-out;
-}
-
-
-.inicio-img:hover {
-  transform: scale(1.1);
-}
-
-.toggle-nav {
-  position: fixed;
-  top: 20px; 
-  left: 170px; /* Este valor debería coincidir con el ancho del menú visible */
-  background-color: #061346;
-  color: white;
-  border: none;
-  padding: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  z-index: 1100;
-  border-radius: 5px;
-  transition: background-color 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100;
+    height: 100%;
+    background-color: rgba(1, 2, 44, 0.8);
+    padding-top: 80px;
+    transition: right 0.3s ease-in-out;
+    /* Cambiado a flex para organizar los elementos */
+    flex-direction: column; /* Coloca los elementos en columna */
+    justify-content: center; /* Centra horizontalmente */
+    display: flex; /* Cambia a flex para centrar elementos */
 }
 
 nav.hidden {
-  left: -200px; /* Mueve el índice fuera de la pantalla completamente */
+    right: -100%; /* Esconde el nav hacia la derecha */
 }
 
+.inicio-img {
+    position:absolute;
+    margin-right: 20px;
+    width: 140px;
+    height: auto;
+    z-index: 1100;
+    top: 0;
+}
 
-.content-section.expand {
-  margin-left: 20px; /* Ya lo tienes, pero asegúrate de que es suficiente espacio */
-  width: calc(100% - 20px); /* Esto ajustará el ancho del contenido a todo el espacio disponible */
+.inicio-img:hover {
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+}
+
+.toggle-nav {
+    position: flex;
+    top: 50px; /* Cambiado a 10px desde la parte superior */
+    /* 10px desde la derecha */
+    background-color: #061346;
+    color: white;
+    width: 40px; /* Establecer un ancho fijo para que sea un cuadrado */
+    height: 40px; /* Establecer una altura igual al ancho */
+    border: none;
+    padding: 5px; /* Hacer el botón más pequeño */
+    font-size: 16px; /* Disminuir el tamaño de la fuente */
+    cursor: pointer;
+    z-index: 1100;
+    border-radius: 5px;
 }
 
 .toggle-nav:hover {
-  background-color: #01002C;
+    background-color: #01002C;
 }
 
-
 nav ul {
+  display: flex¡; /* Cambiado a flex para alinear horizontalmente */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten si no hay espacio */
   list-style-type: none;
-  padding: 0;
+  
 }
 
 nav ul li {
-  margin: 10px 0;
-  position: relative;
+  margin: 10px; /* Añadir un margen para espacio entre los elementos */
+  flex: 1 1 auto; /* Permite que los elementos crezcan y se contraigan */
 }
 
 nav ul li a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  transition: background-color 0.3s, color 0.3s ease-in-out;
-  border-radius: 50px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s ease-in-out;
+    border-radius: 50px;
 }
 
 nav ul li a:hover {
-  background-color: white;
-  color: #061346;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    color: #061346;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 
 /* Main Content Styles */
 .content-section {
-  margin-left: 180px;
-  margin-right: 20px;
-  margin-top: 20px;
-  background-color: white;
-  padding: 60px 30px;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s, box-shadow 0.4s;
+    margin: 20px auto; /* Centra el contenido horizontalmente */
+    width: calc(100% - 40px); /* Ajusta el ancho a 100% menos el espacio del margen lateral */
+    max-width: 800px; /* Establece un ancho máximo para evitar que se expanda demasiado */
+    background-color: white;
+    padding: 60px 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .content-section h2 {
-  font-size: 2em;
-  margin-bottom: 30px;
-  color: #061346;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #061346;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .content-section p,
 .content-section ul {
-  font-size: 1.1em;
-  margin-bottom: 25px;
-  line-height: 1.8;
-  color: #555;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    color: #555;
 }
 
 .content-section ul {
-  list-style-type: disc;
-  padding-left: 40px;
+    list-style-type: disc;
+    padding-left: 40px;
 }
 
 /* Accordion Styles */
 .accordion {
-  background-color: #061346;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  width: 100%;
-  text-align: center;
-  border: none;
-  outline: none;
-  transition: 0.4s;
-  margin-bottom: 10px;
-  border-radius: 10px;
+    background-color: #061346;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .accordion:hover {
-  background-color: #01002c;
+    background-color: #01002c;
 }
 
 .accordion-content {
-  padding: 0 18px;
-  background-color: #f4f4f9;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  border-radius: 0 0 10px 10px;
+    padding: 0 18px;
+    background-color: #f4f4f9;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    border-radius: 0 0 10px 10px;
 }
 
 /* Footer Styles */
 footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  width: 100%;  /* Ahora el footer tiene la misma anchura que el container */
-  max-width: 1200px;  /* Asegura que el footer no exceda el ancho máximo del container */
-  margin: 0 auto;  /* Centra el footer en la página */
-  margin-top: auto;  /* Asegura que el footer se coloque al final */
-  margin-left: 0;
-  transition: margin-left 0.3s ease-in-out;
-}
-
-nav.hidden ~ footer {
-  width: 100%; /* Si el menú está oculto, el footer ocupa todo el ancho */
-  margin-left: 0
-}
-
-.container.expand {
-  margin-left: 0;
-  width: 100%;
-}
-
-.content-section.expand {
-  margin-left: 0;
-  width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;  /* Ahora el footer tiene la misma anchura que el container */
+    /* Asegura que el footer no exceda el ancho máximo del container */
+    margin: 0 auto;  /* Centra el footer en la página */
+    margin-top: auto;  /* Asegura que el footer se coloque al final */
+    transition: margin-left 0.3s ease-in-out;
 }
 
 footer p {
-  margin: 0;
-  font-size: 1em;
-}
-.button:hover {
-  background-color: #00429d;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    font-size: 1em;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  nav {
-    width: 160px;
-  }
-
-  .content-section {
-    margin-left: 170px;
-    padding: 50px 20px;
-  }
+    nav {
+        width: 30%;
+    }
+    .content-section {
+        width: calc(100% - 20px);
+        padding: 30px;
+    }
 }
 
 @media (max-width: 480px) {
-  nav {
-    width: 100%;
-    height: auto;
-    position: static;
-  }
+    nav {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding-top: 20px;
+    }
 
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .content-section {
-    margin-left: 0;
-    padding: 40px 15px;
-  }
+    .content-section {
+        margin-left: 0;
+        padding: 20px;
+    }
 
-  header h1 {
-    font-size: 1.8em;
-  }
+    header h1 {
+        font-size: 1.5em;
+    }
 
-  .accordion,
-  .accordion-content {
-    width: 100%;
-  }
-
-  footer {
-    padding: 15px 0;
-  }
+    .toggle-nav {
+        left: 15px;
+        padding: 8px;
+    }
 }
